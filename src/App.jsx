@@ -7,10 +7,17 @@ import GameScreen from './screens/GameScreen'
 
 function App() {
   const [gameState, setGameState] = useState('PREGAME')
+  const [cardData, setCardData] = useState([])
 
   const initiateLoading = () => changeGameState('LOADING')
-  const startGame = () => changeGameState('GAME')
-  const reinitialiseGame = () => changeGameState('PREGAME')
+  const startGame = (data) => {
+    setCardData(data)
+    changeGameState('GAME')
+  }
+  const reinitialiseGame = () => {
+    setCardData([])
+    changeGameState('PREGAME')
+  }
 
   const changeGameState = (state) => {
     if (state === 'PREGAME' || state === 'GAME' || state === 'LOADING') {
@@ -21,8 +28,8 @@ function App() {
   return (
     <>
       {gameState === 'PREGAME' && <PregameScreen onStartGameClicked={initiateLoading} />}
-      {gameState === 'LOADING' && <LoadingScreen />}
-      {gameState === 'GAME' && <GameScreen />} 
+      {gameState === 'LOADING' && <LoadingScreen onDataLoaded={startGame} />}
+      {gameState === 'GAME' && <GameScreen data={cardData} onNewGameClicked={reinitialiseGame} />} 
     </>
   )
 }
