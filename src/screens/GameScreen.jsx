@@ -1,5 +1,7 @@
 function GameScreen({data, onNewGameClicked}) {
-    return <div>{data}</div>
+    return <div>{data}
+        <button onClick={onNewGameClicked}>New Game</button>
+    </div>
 }
 
 export default GameScreen
