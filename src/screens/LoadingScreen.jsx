@@ -15,7 +15,11 @@ function LoadingScreen({onDataLoaded}) {
                   }
                 else return response.json()
             })
-            .then((data) => onDataLoaded(data.message))
+            .then((data) => {
+                const dataObjects = data.message.map((item, index) => {return { id: index, imageUrl: item}})
+                onDataLoaded(dataObjects)
+            }
+            )
             .catch((err) => console.log(err.message))
     }, [])
 
