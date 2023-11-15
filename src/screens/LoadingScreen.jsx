@@ -7,7 +7,14 @@ function LoadingScreen({onDataLoaded}) {
 
     useEffect(() => {
         fetch('https://dog.ceo/api/breeds/image/random/20')
-            .then((response) => response.json())
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error(
+                      `This is an HTTP error: The status is ${response.status}`
+                    );
+                  }
+                else return response.json()
+            })
             .then((data) => onDataLoaded(data.message))
             .catch((err) => console.log(err.message))
     }, [])
