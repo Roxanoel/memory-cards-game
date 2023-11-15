@@ -21,7 +21,9 @@ function GameScreen({data, onNewGameClicked}) {
 
     return( 
     <div>
-        {dataInOrder.map((itemData) => <Card key={itemData.id} imageUrl={itemData.imageUrl} cardId={itemData.id} onCardClicked={handleCardClicked} />)}
+        <div className="game-board">
+            {dataInOrder.map((itemData) => <Card key={itemData.id} imageUrl={itemData.imageUrl} cardId={itemData.id} onCardClicked={handleCardClicked} />)}
+        </div>
         <button onClick={onNewGameClicked}>New Game</button>
     </div>
     )
