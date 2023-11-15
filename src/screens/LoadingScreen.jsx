@@ -6,7 +6,7 @@ function LoadingScreen({onDataLoaded}) {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        fetch('https://dog.ceo/api/breeds/image/random/20')
+        fetch('https://dog.ceo/api/breeds/image/random/9')
             .then((response) => {
                 if (!response.ok) {
                     throw new Error(
