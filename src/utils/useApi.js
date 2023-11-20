@@ -15,8 +15,14 @@ function getRandomPokemons(amount) {
         if(randomIds.indexOf(idCandidate) === -1) randomIds.push(idCandidate)
     }
     // get pokemon data for all these IDs 
+    const pokemonsData = [] //P.getPokemonByName(5).then((data) => {
+        //return data
+        //})
+    for (let i = 0; i < randomIds.length; i++) {
+        P.getPokemonByName(randomIds[i]).then((data) => pokemonsData.push(data))
+    }
     // return the data
-    return randomIds
+    return pokemonsData
 }
 
 export { getRandomPokemons }

@@ -7,6 +7,7 @@ function LoadingScreen({onDataLoaded}) {
     const [error, setError] = useState(null);
 
     useEffect(() => {
+        //getRandomPokemons(9).then((data) => console.log(data))
         console.log(getRandomPokemons(9))
         fetch('https://dog.ceo/api/breeds/image/random/9')
             .then((response) => {
