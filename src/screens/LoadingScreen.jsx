@@ -7,23 +7,7 @@ function LoadingScreen({onDataLoaded}) {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        //getRandomPokemons(9).then((data) => console.log(data))
-        console.log(getRandomPokemons(9))
-        fetch('https://dog.ceo/api/breeds/image/random/9')
-            .then((response) => {
-                if (!response.ok) {
-                    throw new Error(
-                      `This is an HTTP error: The status is ${response.status}`
-                    );
-                  }
-                else return response.json()
-            })
-            .then((data) => {
-                const dataObjects = data.message.map((item, index) => {return { id: index, imageUrl: item}})
-                onDataLoaded(dataObjects)
-            }
-            )
-            .catch((err) => console.log(err.message))
+        getRandomPokemons(9).then((data) => onDataLoaded(data))
     }, [])
 
     return <div>Loading...</div>

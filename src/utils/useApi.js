@@ -15,7 +15,7 @@ function formatPokemonData(pokemonData) {
     }
 }
 
-function getRandomPokemons(amount) {
+async function getRandomPokemons(amount) {
     // build an array of random id's, specified length, none can be repeated
     const randomIds = []
     while(randomIds.length < amount){
@@ -23,12 +23,14 @@ function getRandomPokemons(amount) {
         if(randomIds.indexOf(idCandidate) === -1) randomIds.push(idCandidate)
     }
     // get pokemon data for all these IDs 
-    const pokemonsData = [] //P.getPokemonByName(5).then((data) => {
-        //return data
-        //})
-    for (let i = 0; i < randomIds.length; i++) {
-        P.getPokemonByName(randomIds[i]).then((data) => pokemonsData.push(formatPokemonData(data))).catch((err) => console.log(err.message))
-    }
+    const promises = randomIds.map((id) =>
+    P.getPokemonByName(id)
+      .then((data) => formatPokemonData(data))
+      .catch((err) => console.log(err.message))
+    )
+
+    const pokemonsData = await Promise.all(promises);
+    
     // return the data
     return pokemonsData
 }

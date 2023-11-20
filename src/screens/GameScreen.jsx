@@ -12,6 +12,11 @@ function GameScreen({data, onNewGameClicked}) {
         setDataInOrder([...shuffledData])
     }
 
+    const generateCards = () => {
+        console.log(dataInOrder)
+        return dataInOrder.map((itemData) => <Card key={itemData.id} imageUrl={itemData.image} cardId={itemData.id} onCardClicked={handleCardClicked} />)
+    }
+
     const handleCardClicked = (id) => {
         // TO DO: Check if the card was already clicked
         if (clickedItemIds.includes(id)) {
@@ -29,7 +34,7 @@ function GameScreen({data, onNewGameClicked}) {
     <div>
         <div className="scoreboard">{`Score: ${clickedItemIds.length}`}</div>
         <div className="game-board">
-            {dataInOrder.map((itemData) => <Card key={itemData.id} imageUrl={itemData.imageUrl} cardId={itemData.id} onCardClicked={handleCardClicked} />)}
+            {generateCards()}
         </div>
         <button onClick={onNewGameClicked}>New Game</button>
     </div>
