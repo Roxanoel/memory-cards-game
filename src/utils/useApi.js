@@ -7,6 +7,14 @@ const P = new Pokedex({cacheImages: true})
 const MIN_ID = 1   // ids start at 1
 const MAX_ID = 1000   // to make sure it won't overflow, always round down
 
+function formatPokemonData(pokemonData) {
+    return {
+        image: pokemonData.sprites.other["official-artwork"].front_default,
+        id: pokemonData.id,
+        name: pokemonData.name,
+    }
+}
+
 function getRandomPokemons(amount) {
     // build an array of random id's, specified length, none can be repeated
     const randomIds = []
@@ -19,7 +27,7 @@ function getRandomPokemons(amount) {
         //return data
         //})
     for (let i = 0; i < randomIds.length; i++) {
-        P.getPokemonByName(randomIds[i]).then((data) => pokemonsData.push(data))
+        P.getPokemonByName(randomIds[i]).then((data) => pokemonsData.push(formatPokemonData(data)))
     }
     // return the data
     return pokemonsData
