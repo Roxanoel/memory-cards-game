@@ -7,7 +7,7 @@ function LoadingScreen({onDataLoaded}) {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        getRandomPokemons(9).then((data) => onDataLoaded(data))
+        getRandomPokemons(8).then((data) => onDataLoaded(data))
     }, [])
 
     return <div>Loading...</div>
