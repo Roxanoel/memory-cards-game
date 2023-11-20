@@ -31,7 +31,7 @@ function GameScreen({data, onNewGameClicked}) {
     }
 
     return( 
-    <div>
+    <div className="game-screen">
         <div className="scoreboard">{`Score: ${clickedItemIds.length}`}</div>
         <div className="game-board">
             {generateCards()}
