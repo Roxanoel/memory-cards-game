@@ -1,5 +1,7 @@
 function Card({imageUrl, cardId, onCardClicked, name}) {
-    
+    const capitalize = (str) => {
+        return str.charAt(0).toUpperCase() + str.slice(1)
+    }
 
     return( 
     <div className="card" onClick={() => onCardClicked(cardId)}>
@@ -7,7 +9,7 @@ function Card({imageUrl, cardId, onCardClicked, name}) {
             <img className="image" src={imageUrl} />
         </div>
         <div className="name-container">
-            {name}
+            {capitalize(name)}
         </div>
     </div>
     )
