@@ -27,7 +27,7 @@ function getRandomPokemons(amount) {
         //return data
         //})
     for (let i = 0; i < randomIds.length; i++) {
-        P.getPokemonByName(randomIds[i]).then((data) => pokemonsData.push(formatPokemonData(data)))
+        P.getPokemonByName(randomIds[i]).then((data) => pokemonsData.push(formatPokemonData(data))).catch((err) => console.log(err.message))
     }
     // return the data
     return pokemonsData
