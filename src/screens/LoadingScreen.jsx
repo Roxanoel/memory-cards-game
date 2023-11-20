@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { getRandomPokemons } from "../utils/useApi";
 
 function LoadingScreen({onDataLoaded}) {
     const [data, setData] = useState(null);
@@ -6,6 +7,7 @@ function LoadingScreen({onDataLoaded}) {
     const [error, setError] = useState(null);
 
     useEffect(() => {
+        console.log(getRandomPokemons(9))
         fetch('https://dog.ceo/api/breeds/image/random/9')
             .then((response) => {
                 if (!response.ok) {
