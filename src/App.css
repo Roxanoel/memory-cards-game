@@ -20,8 +20,9 @@
 
 .card {
   padding: 1rem;
-  background-color: white;
+  background-color: #f0f0f0;
   border-radius: 32px;
+  box-shadow: 5px 5px 5px #00000008;
 }
 
 .image-container {
