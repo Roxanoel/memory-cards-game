@@ -14,7 +14,7 @@ function GameScreen({data, onNewGameClicked}) {
 
     const generateCards = () => {
         console.log(dataInOrder)
-        return dataInOrder.map((itemData) => <Card key={itemData.id} imageUrl={itemData.image} cardId={itemData.id} onCardClicked={handleCardClicked} />)
+        return dataInOrder.map((itemData) => <Card key={itemData.id} name={itemData.name} imageUrl={itemData.image} cardId={itemData.id} onCardClicked={handleCardClicked} />)
     }
 
     const handleCardClicked = (id) => {

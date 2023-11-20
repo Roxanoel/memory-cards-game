@@ -19,10 +19,11 @@
 }
 
 .card {
-  padding: 1rem;
+  /*padding: 1rem;*/
   background-color: #f0f0f0;
   border-radius: 32px;
   box-shadow: 5px 5px 5px #00000008;
+  overflow: hidden;
 }
 
 .image-container {
@@ -38,4 +39,10 @@
 .image {
   width: 200px;
   height: 200px;
+}
+
+.name-container {
+  padding: 1rem;
+  background-color: black;
+  color: white;
 }
