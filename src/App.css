@@ -5,6 +5,21 @@
   text-align: center;
 }
 
+.pregame-screen {
+  display: flex;
+  flex-direction: column;
+  min-height: 50vh;
+  max-height: 800px;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 600px;
+}
+
+.instructions-container {
+  margin-bottom: 2rem;
+  text-wrap: balance;
+}
+
 .game-screen {
   display: flex;
   flex-direction: column;
