@@ -1,4 +1,4 @@
-function Card({imageUrl, cardId, onCardClicked, name}) {
+function Card({imageUrl, cardId, onCardClicked, name, types}) {
     const capitalize = (str) => {
         return str.charAt(0).toUpperCase() + str.slice(1)
     }
@@ -10,6 +10,7 @@ function Card({imageUrl, cardId, onCardClicked, name}) {
         </div>
         <div className="name-container">
             {capitalize(name)}
+            {JSON.stringify(types)}
         </div>
     </div>
     )

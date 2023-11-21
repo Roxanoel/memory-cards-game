@@ -12,6 +12,7 @@ function formatPokemonData(pokemonData) {
         image: pokemonData.sprites.other["official-artwork"].front_default,
         id: pokemonData.id,
         name: pokemonData.name,
+        types: pokemonData.types
     }
 }
 
