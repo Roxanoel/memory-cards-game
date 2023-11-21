@@ -40,11 +40,15 @@
   border-radius: 32px;
   box-shadow: 5px 5px 5px #00000008;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .image-container {
   width: 200px;
-  /*height: 300px;*/
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
