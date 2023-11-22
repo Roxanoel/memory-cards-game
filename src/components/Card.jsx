@@ -9,8 +9,6 @@ function Card({imageUrl, cardId, onCardClicked, name, types}) {
         const colourOne = typeColours[types[0].type.name.toUpperCase()]
         const colourTwo = types.length > 1 ? typeColours[types[1].type.name.toUpperCase()] : colourOne
 
-        console.log(`${name}: ${colourOne} & ${colourTwo}`)
-
         return {backgroundImage: `linear-gradient(145deg, ${colourOne}, ${colourTwo})`}
     }
 
