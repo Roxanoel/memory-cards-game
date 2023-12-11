@@ -2,10 +2,9 @@ import { useState } from "react"
 import shuffle from "../utils/shuffle"
 import Card from "../components/Card"
 
-function GameScreen({data, onNewGameClicked}) {
+function GameScreen({data, onNewGameClicked, onNewAttempt, onWin}) {
     const [dataInOrder, setDataInOrder] = useState(data)
     const [clickedItemIds, setClickedItemIds] = useState([])
-    const [attemptsCount, setAttemptsCount] = useState(1)
 
     const shuffleCards = () => {
         const copy = [...dataInOrder]
@@ -29,9 +28,14 @@ function GameScreen({data, onNewGameClicked}) {
             // reset the array 
             setClickedItemIds([])
             // increment attempts count 
-            setAttemptsCount(attemptsCount + 1)
+            onNewAttempt()
         }
         else {// add id to the list 
+            // Check if that means game is won
+            if (clickedItemIds.length === dataInOrder.length - 1) {
+                onWin()
+            } else 
+            // Otherwise just add to list
             setClickedItemIds([...clickedItemIds, id])
         }
         // Shuffle the cards
