@@ -1,6 +1,6 @@
 function WinScreen({attemptsCount, onNewGameClicked}) {
-    return <div>
-        {`Congratulations! You won after ${attemptsCount} attempts.`} 
+    return <div className="win-screen">
+        <div>{`Congratulations! You won after ${attemptsCount} attempts.`}</div> 
         <button onClick={onNewGameClicked}>New Game</button>
     </div>
 }

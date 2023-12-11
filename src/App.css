@@ -71,3 +71,11 @@
   text-shadow: #000 1px 0 3px,
   #000 -1px 0 3px;
 }
+
+.win-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
