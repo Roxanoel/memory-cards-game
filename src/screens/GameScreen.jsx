@@ -5,6 +5,7 @@ import Card from "../components/Card"
 function GameScreen({data, onNewGameClicked}) {
     const [dataInOrder, setDataInOrder] = useState(data)
     const [clickedItemIds, setClickedItemIds] = useState([])
+    const [attemptsCount, setAttemptsCount] = useState(1)
 
     const shuffleCards = () => {
         const copy = [...dataInOrder]
@@ -27,6 +28,8 @@ function GameScreen({data, onNewGameClicked}) {
         if (clickedItemIds.includes(id)) {
             // reset the array 
             setClickedItemIds([])
+            // increment attempts count 
+            setAttemptsCount(attemptsCount + 1)
         }
         else {// add id to the list 
             setClickedItemIds([...clickedItemIds, id])
