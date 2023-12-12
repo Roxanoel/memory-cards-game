@@ -9,7 +9,7 @@ import WinScreen from './screens/WinScreen'
 function App() {
   const [gameState, setGameState] = useState('PREGAME')
   const [cardData, setCardData] = useState([])
-  const [attemptsCount, setAttemptsCount] = useState(1)
+  const [attemptsCount, setAttemptsCount] = useState(0)
 
   const initiateLoading = () => changeGameState('LOADING')
   const startGame = (data) => {
